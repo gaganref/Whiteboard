@@ -1,0 +1,27 @@
+.sketch{
+    /*width: 1920px;*/
+    /*height: 1080px;*/
+    width: 100%;
+    height: 100%;
+}
+
+.whiteboard {
+    width: 100%;
+    height: 100%;
+}
+
+#temp_canvas {
+    position: absolute;
+}
+
+#inputArea{
+    position: fixed;
+    z-index: 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    margin: 5px;
+    width: 200px;
+    height: 40px;
+}

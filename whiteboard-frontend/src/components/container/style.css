@@ -1,0 +1,23 @@
+@import "rsuite/dist/rsuite.css";
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /*overflow-x: scroll;*/
+    /*overflow-y: scroll;*/
+}
+
+.toolbox {
+    position: absolute;
+    z-index: 3;
+    cursor: move;
+    color: white;
+    max-width: 90vw;
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    user-select: none;
+    background: lightsteelblue;
+    border: 2px solid grey;
+}
