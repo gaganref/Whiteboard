@@ -18,39 +18,45 @@ services:
     links:
       - redis
     expose:
-      - "3000"
+      - "8883"
     environment:
       - NAME=John
+      - PORT=8883
 
   server-paul:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "3000"
+      - "8883"
     environment:
       - NAME=Paul
+      - PORT=8883
 
   server-george:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "3000"
+      - "8883"
     environment:
       - NAME=George
+      - PORT=8883
 
   server-ringo:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "3000"
+      - "8883"
     environment:
       - NAME=Ringo
+      - PORT=8883
 
   client:
     build: ./whiteboard-frontend
+    expose:
+      - "3000"
     links:
       - nginx
 

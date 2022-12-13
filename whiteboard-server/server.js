@@ -1,7 +1,15 @@
 const express = require('express');
 const app =express();
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+
+    // use WebSocket first, if available
+    // transports: ["websocket", "polling"],
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
 
 const { createAdapter } = require('@socket.io/redis-adapter');
 const { createClient } = require('redis');

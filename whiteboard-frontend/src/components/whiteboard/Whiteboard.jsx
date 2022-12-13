@@ -8,8 +8,10 @@ import './style.css';
 class Whiteboard extends Component
 {
     timeout;
+    // io = require("socket.io-client");
     io = require("socket.io-client")('ws://nginx');
-    // socket = io.connect("http://localhost:8935/");
+    socket = io.connect("http://localhost:8883/");
+    // socket = io.connect();
     ctx;
     temp_ctx;
 
@@ -70,6 +72,8 @@ class Whiteboard extends Component
 
 
     drawWithMouse(){
+
+        console.log('check 1', this.socket.connected);
 
         let canvas = document.querySelector('#whiteboard');
         this.ctx = canvas.getContext('2d');
