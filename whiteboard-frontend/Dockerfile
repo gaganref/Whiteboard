@@ -14,6 +14,7 @@ COPY . /usr/src/app
 EXPOSE 3000
 CMD [ "npm", "start" ]
 
+#
 ## stage1 as builder
 #FROM node:18-alpine as builder
 #
@@ -21,7 +22,7 @@ CMD [ "npm", "start" ]
 #COPY package.json package-lock.json ./
 #
 ## Install the dependencies and make the folder
-#RUN npm install
+#RUN npm install && mkdir /react-ui && mv ./node_modules ./react-ui
 #
 #WORKDIR /react-ui
 #
@@ -33,8 +34,8 @@ CMD [ "npm", "start" ]
 #
 #FROM nginx:alpine
 #
-###!/bin/sh
-##
+##!/bin/sh
+#
 #COPY ../nginx.conf /etc/nginx/nginx.conf
 #
 ### Remove default nginx index page

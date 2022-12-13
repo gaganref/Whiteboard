@@ -6,52 +6,52 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     links:
-      - server-john
-      - server-paul
-      - server-george
-      - server-ringo
+      - server-1
+      - server-2
+      - server-3
+      - server-4
     ports:
       - "3000:80"
 
-  server-john:
+  server-1:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "8883"
+      - "3000"
     environment:
-      - NAME=John
-      - PORT=8883
+      - NAME=1
+      - PORT=3000
 
-  server-paul:
+  server-2:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "8883"
+      - "3000"
     environment:
-      - NAME=Paul
-      - PORT=8883
+      - NAME=2
+      - PORT=3000
 
-  server-george:
+  server-3:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "8883"
+      - "3000"
     environment:
-      - NAME=George
-      - PORT=8883
+      - NAME=3
+      - PORT=3000
 
-  server-ringo:
+  server-4:
     build: ./whiteboard-server
     links:
       - redis
     expose:
-      - "8883"
+      - "3000"
     environment:
-      - NAME=Ringo
-      - PORT=8883
+      - NAME=4
+      - PORT=3000
 
   client:
     build: ./whiteboard-frontend

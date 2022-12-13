@@ -11,7 +11,7 @@ RUN npm install --prod
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 8883
+EXPOSE 3000
 CMD [ "npm", "start" ]
 
 #FROM node:18-alpine
