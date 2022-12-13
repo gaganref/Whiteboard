@@ -8,8 +8,8 @@ import './style.css';
 class Whiteboard extends Component
 {
     timeout;
-    // io = require("socket.io-client");
-    io = require("socket.io-client")('ws://nginx');
+    io = require("socket.io-client");
+    // io = require("socket.io-client")('ws://nginx');
     socket = io({transports: ['websocket']}).connect("http://localhost:3000/");
     // socket = io.connect("http://localhost:3120/", {path: "/socket.io"});
     // socket = require('socket.io-client')('ws://nginx');

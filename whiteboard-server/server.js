@@ -42,7 +42,8 @@ let latestData;
 io.on('connection', (socket)=> {
     console.log('User Online');
 
-    io.to(socket.id).emit('canvas-data', latestData);
+    socket.emit('canvas-data', latestData);
+    // io.to(socket.id).emit('canvas-data', latestData);
 
     socket.on('canvas-data', (data)=> {
         latestData = data;
