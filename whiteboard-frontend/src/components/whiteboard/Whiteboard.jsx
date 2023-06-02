@@ -9,7 +9,11 @@ class Whiteboard extends Component
 {
     timeout;
     io = require("socket.io-client");
-    socket = io.connect("http://localhost:8935/");
+    // io = require("socket.io-client")('ws://nginx');
+    socket = io({transports: ['websocket']}).connect("http://localhost:3000/");
+    // socket = io.connect("http://localhost:3120/", {path: "/socket.io"});
+    // socket = require('socket.io-client')('ws://nginx');
+    // socket = io.connect();
     ctx;
     temp_ctx;
 
@@ -23,6 +27,9 @@ class Whiteboard extends Component
             drawType: "Mouse"
         }
 
+        this.socket.on('connect', () => {
+            console.log('connected');
+        });
 
         this.socket.on("canvas-data", function(data){
 
@@ -67,6 +74,8 @@ class Whiteboard extends Component
 
 
     drawWithMouse(){
+
+        console.log('check 1', this.socket.connected);
 
         let canvas = document.querySelector('#whiteboard');
         this.ctx = canvas.getContext('2d');
